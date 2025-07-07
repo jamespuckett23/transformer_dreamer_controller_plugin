@@ -3,7 +3,6 @@
 - current location
 - goal location
 - STVL: spatial temporal voxel layer (https://docs.nav2.org/tutorials/docs/navigation2_with_stvl.html)
-- World Model (dynamic objects w/ predictions)
 
 
 # Model
@@ -13,12 +12,10 @@
         latents = dreamer.rollout(z, horizon=10)
         predicted_positions = position_decoder(latents)  # MLP → (x, y)
         loss = MSE(predicted_positions, ground_truth_future_path)
-    - Predicted path
     - Control actions (speed and direction of vehicle)
 - Observation space
     - Current pose
     - Goal pose
-    - Predicted path
     - STVL/cost map
 
 
